@@ -1,0 +1,22 @@
+\doxysection{reservalib.\+h}
+\hypertarget{reservalib_8h_source}{}\label{reservalib_8h_source}\mbox{\hyperlink{reservalib_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RESERVALIB\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RESERVALIB\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_reserva_service_8h}{IReservaService.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_reserva_lib_aa3bf81bab8de53a2ffed0f95ac23cac7}{ReservaLib}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_reserva_service}{IReservaService}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ QMap<QString,\ Reserva>\ banco;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_reserva_lib_aa3bf81bab8de53a2ffed0f95ac23cac7}{ReservaLib}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reserva_lib_a5d02572c5cd829940d5c4a5c5faccc45}{salvarReserva}}(QString\ sala,\ QDate\ data,\ QString\ hora,\ \mbox{\hyperlink{struct_reserva}{Reserva}}\ r)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_reserva}{Reserva}}\ \mbox{\hyperlink{class_reserva_lib_a0022fe515b855134361e5e62b6a720c4}{buscarReserva}}(QString\ sala,\ QDate\ data,\ QString\ hora)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reserva_lib_a5ea5c5edf0d227ddc406323bf9a7debb}{existeReserva}}(QString\ sala,\ QDate\ data,\ QString\ hora)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

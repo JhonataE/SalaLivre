@@ -1,0 +1,86 @@
+\doxysection{IReserva\+Service Class Reference}
+\hypertarget{class_i_reserva_service}{}\label{class_i_reserva_service}\index{IReservaService@{IReservaService}}
+
+
+Interface para o serviço de gestão de reservas.  
+
+
+
+
+{\ttfamily \#include $<$IReserva\+Service.\+h$>$}
+
+
+
+Inheritance diagram for IReserva\+Service\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_i_reserva_service__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_i_reserva_service_a489ef0e676a376ea6047989856d6e538}{\texorpdfstring{$\sim$}{\string~}\+IReserva\+Service}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_reserva_service_abb30099e650ff751a46fbf844dc845d7}{salvar\+Reserva}} (QString sala, QDate data, QString hora, \mbox{\hyperlink{struct_reserva}{Reserva}} r)=0
+\item 
+virtual \mbox{\hyperlink{struct_reserva}{Reserva}} \mbox{\hyperlink{class_i_reserva_service_a06910804254fd29d04a7d532cb6b58ca}{buscar\+Reserva}} (QString sala, QDate data, QString hora)=0
+\item 
+virtual bool \mbox{\hyperlink{class_i_reserva_service_ada878229a5ec248c5434d7d2af8f9b86}{existe\+Reserva}} (QString sala, QDate data, QString hora)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface para o serviço de gestão de reservas. 
+
+\label{doc-constructors}
+\Hypertarget{class_i_reserva_service_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_reserva_service_a489ef0e676a376ea6047989856d6e538}\index{IReservaService@{IReservaService}!````~IReservaService@{\texorpdfstring{$\sim$}{\string~}IReservaService}}
+\index{````~IReservaService@{\texorpdfstring{$\sim$}{\string~}IReservaService}!IReservaService@{IReservaService}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IReservaService()}{\string~IReservaService()}}
+{\footnotesize\ttfamily \label{class_i_reserva_service_a489ef0e676a376ea6047989856d6e538} 
+virtual IReserva\+Service\+::\texorpdfstring{$\sim$}{\string~}\+IReserva\+Service (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_i_reserva_service_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_reserva_service_a06910804254fd29d04a7d532cb6b58ca}\index{IReservaService@{IReservaService}!buscarReserva@{buscarReserva}}
+\index{buscarReserva@{buscarReserva}!IReservaService@{IReservaService}}
+\doxysubsubsection{\texorpdfstring{buscarReserva()}{buscarReserva()}}
+{\footnotesize\ttfamily \label{class_i_reserva_service_a06910804254fd29d04a7d532cb6b58ca} 
+virtual \mbox{\hyperlink{struct_reserva}{Reserva}} IReserva\+Service\+::buscar\+Reserva (\begin{DoxyParamCaption}\item[{QString}]{sala}{, }\item[{QDate}]{data}{, }\item[{QString}]{hora}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_reserva_lib_a0022fe515b855134361e5e62b6a720c4}{Reserva\+Lib}}.
+
+\Hypertarget{class_i_reserva_service_ada878229a5ec248c5434d7d2af8f9b86}\index{IReservaService@{IReservaService}!existeReserva@{existeReserva}}
+\index{existeReserva@{existeReserva}!IReservaService@{IReservaService}}
+\doxysubsubsection{\texorpdfstring{existeReserva()}{existeReserva()}}
+{\footnotesize\ttfamily \label{class_i_reserva_service_ada878229a5ec248c5434d7d2af8f9b86} 
+virtual bool IReserva\+Service\+::existe\+Reserva (\begin{DoxyParamCaption}\item[{QString}]{sala}{, }\item[{QDate}]{data}{, }\item[{QString}]{hora}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_reserva_lib_a5ea5c5edf0d227ddc406323bf9a7debb}{Reserva\+Lib}}.
+
+\Hypertarget{class_i_reserva_service_abb30099e650ff751a46fbf844dc845d7}\index{IReservaService@{IReservaService}!salvarReserva@{salvarReserva}}
+\index{salvarReserva@{salvarReserva}!IReservaService@{IReservaService}}
+\doxysubsubsection{\texorpdfstring{salvarReserva()}{salvarReserva()}}
+{\footnotesize\ttfamily \label{class_i_reserva_service_abb30099e650ff751a46fbf844dc845d7} 
+virtual void IReserva\+Service\+::salvar\+Reserva (\begin{DoxyParamCaption}\item[{QString}]{sala}{, }\item[{QDate}]{data}{, }\item[{QString}]{hora}{, }\item[{\mbox{\hyperlink{struct_reserva}{Reserva}}}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_reserva_lib_a5d02572c5cd829940d5c4a5c5faccc45}{Reserva\+Lib}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_i_reserva_service_8h}{IReserva\+Service.\+h}}\end{DoxyCompactItemize}

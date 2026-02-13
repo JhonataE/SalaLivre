@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['need_5fmore_5fthan_5fnothing_0',['need_more_than_nothing',['../_unit_tests_2_unit_tests__autogen_2mocs__compilation_8cpp.html#a361a0de81cc97363a46c847a93084bdea5678df260dfcbe70c02dce6366c0a821',1,'mocs_compilation.cpp']]],
+  ['nome_1',['nome',['../struct_reserva.html#ac36ac17c31b067b3e356d3aab86b2315',1,'Reserva']]]
+];
