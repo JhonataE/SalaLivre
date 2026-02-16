@@ -4,19 +4,25 @@ project(UnitTests LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Habilita as ferramentas do Qt
+# Habilita o processamento automático de arquivos Qt
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
-# Encontra os pacotes necessários (Widgets para o QString/QDate e Test para o framework)
+# Encontra os pacotes necessários
 find_package(Qt6 REQUIRED COMPONENTS Widgets Test)
 
-# Inclui a pasta anterior para que o teste ache os seus headers (.h)
+# Inclui a pasta anterior para localizar os headers (.h)
 include_directories(..)
 
+# UNIFICAÇÃO: Liste TODOS os arquivos aqui em um único comando
 add_executable(UnitTests
     tst_unittests.cpp
     ../reservalib.cpp
+    ../adminmodel.cpp
+    ../adminmodel.ui
+    ../userservice.cpp
 )
 
-# Vincula as bibliotecas ao executável de teste
+# Vincula as bibliotecas ao executável
 target_link_libraries(UnitTests PRIVATE Qt6::Widgets Qt6::Test)

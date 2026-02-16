@@ -1,0 +1,10 @@
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/SalaLivre_Sprint1.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/SalaLivre_Sprint1_autogen_timestamp_deps.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/SalaLivre_Sprint1_autogen.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/CMakeFiles/UnitTests.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/CMakeFiles/edit_cache.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/CMakeFiles/rebuild_cache.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/CMakeFiles/UnitTests_autogen_timestamp_deps.dir
+C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/CMakeFiles/UnitTests_autogen.dir

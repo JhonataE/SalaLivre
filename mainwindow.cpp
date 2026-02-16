@@ -1,3 +1,9 @@
+/**
+ * @file mainwindow.cpp
+ * @brief Implementação da janela principal do sistema SalaLivre.
+ * @author Jhonata
+ */
+
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "reservalib.h"
@@ -11,35 +17,62 @@
 #include <QMessageBox>
 #include <QFormLayout>
 #include <QLineEdit>
+#include "mainwindow.h"
+#include "./ui_mainwindow.h"
+#include "adminmodel.h"
 
-MainWindow::MainWindow(QWidget *parent)
+/**
+ * @details Inicializa os serviços e recupera os dados do usuário logado via UserService.
+ */
+
+/**
+ * @brief Construtor da classe MainWindow.
+ * @details Inicializa os serviços de reserva, configura a tabela de horários e recupera os dados do usuário logado via UserService para controle de permissões.
+ * @param service Ponteiro para a interface do serviço de usuários.
+ * @param parent Ponteiro para o widget pai.
+ */
+MainWindow::MainWindow(IUserService* service, QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow) {
+    , ui(new Ui::MainWindow)
+    , userService(service) {
     ui->setupUi(this);
 
-    // Configura colunas da Timeline
+    // Recupera os dados do usuário para automação de reservas
+    this->dadosUsuarioLogado = userService->getLoggedUserData();
+
+    // Define o perfil padrão baseado no login para as restrições de busca
+    this->perfilAtual = dadosUsuarioLogado.role;
+
     ui->gridAgenda->setColumnCount(2);
     ui->gridAgenda->setHorizontalHeaderLabels({"Horário", "Status"});
 
-    // Componentização: Instancia a classe concreta da DLL e atribui à Interface (baixo acoplamento)
-    //Para usar SQL futuramente, basta criar nova classe que herda da interface e altera a inicialização
+    // Instanciação da biblioteca de reservas
     reservaService = new ReservaLib();
-}
 
+    // --- NOVA LÓGICA DE ADMIN ---
+    // Verifica se o usuário logado é Administrador
+    if (this->perfilAtual == "Admin") {
+        ui->btnAreaAdm->setVisible(true); // O botão deve estar criado no mainwindow.ui
+    } else {
+        ui->btnAreaAdm->setVisible(false); // Garante que alunos/externos não vejam
+    }
+}
+/**
+ * @brief Destrutor da classe MainWindow.
+ * @details Realiza a limpeza da memória desalocando a interface UI e o serviço de reservas.
+ */
 MainWindow::~MainWindow() {
     delete ui;
-    delete reservaService; //liberar memória do serviço
+    delete reservaService;
 }
-
+/**
+ * @brief Slot acionado ao clicar no botão Buscar.
+ * @details Abre um diálogo para selecionar a unidade acadêmica e a data, filtrando as salas disponíveis para exibição.
+ */
 void MainWindow::on_btnBuscar_clicked() {
     QDialog dialog(this);
     dialog.setWindowTitle("Configurar Agendamento - SalaLivre");
     QVBoxLayout *layout = new QVBoxLayout(&dialog);
-
-    layout->addWidget(new QLabel("Perfil do Ator:"));
-    QComboBox *comboUser = new QComboBox(&dialog);
-    comboUser->addItems({"Docente", "Estudante", "Usuário Externo"});
-    layout->addWidget(comboUser);
 
     layout->addWidget(new QLabel("Selecione a Unidade (Prédio):"));
     QComboBox *comboLocal = new QComboBox(&dialog);
@@ -55,7 +88,6 @@ void MainWindow::on_btnBuscar_clicked() {
     connect(btnOk, &QPushButton::clicked, &dialog, &QDialog::accept);
 
     if (dialog.exec() == QDialog::Accepted) {
-        this->perfilAtual = comboUser->currentText();
         this->dataAtual = calendario->selectedDate();
         QString predio = comboLocal->currentText();
 
@@ -87,44 +119,26 @@ void MainWindow::on_btnAgendar_clicked() {
         return;
     }
 
-    // (Criação do Diálogo) ---
-    QDialog d(this);
-    d.setWindowTitle("Dados da Reserva");
-    QFormLayout ly(&d);
+    QString sala = ui->listSalas->currentItem()->text();
+    QString statusTxt = ui->lblStatus->text();
+    QString predio = statusTxt.split("|").first().replace("Prédio: ", "").trimmed();
 
-    QLineEdit *editNome = new QLineEdit(&d);
-    QLineEdit *editTel = new QLineEdit(&d);
+    // Engenharia de Software: Uso de dados automáticos do login (SB01)
+    for (int row : linhas) {
+        QString hora = ui->gridAgenda->item(row, 0)->text();
 
-    ly.addRow("Nome Completo:", editNome);
-    ly.addRow("Telefone:", editTel);
+        Reserva r;
+        r.nome = this->dadosUsuarioLogado.name;
+        // Armazenamos o e-mail no campo telefone para facilitar a exibição
+        r.telefone = this->dadosUsuarioLogado.email;
+        r.perfil = this->dadosUsuarioLogado.role;
+        r.ocupado = true;
 
-    QPushButton *btnConfirmar = new QPushButton("Confirmar Reserva", &d);
-    ly.addWidget(btnConfirmar);
-
-    connect(btnConfirmar, &QPushButton::clicked, &d, &QDialog::accept);
-    // ---------------------------------------------------------------------
-
-
-    if (d.exec() == QDialog::Accepted && !editNome->text().isEmpty()) {
-        QString sala = ui->listSalas->currentItem()->text();
-        QString statusTxt = ui->lblStatus->text();
-        QString predio = statusTxt.split("|").first().replace("Prédio: ", "").replace("Unidade: ", "").trimmed();
-
-        for (int row : linhas) {
-            QString hora = ui->gridAgenda->item(row, 0)->text();
-
-            Reserva r;
-            r.nome = editNome->text();
-            r.telefone = editTel->text();
-            r.perfil = this->perfilAtual;
-            r.ocupado = true;
-
-            // Uso da Interface e DLL
-            reservaService->salvarReserva(sala, this->dataAtual, hora, r);
-        }
-
-        atualizarGradeHoraria(this->dataAtual, this->perfilAtual, sala, predio);
+        reservaService->salvarReserva(sala, this->dataAtual, hora, r);
     }
+
+    QMessageBox::information(this, "Sucesso", "Reserva confirmada automaticamente para: " + this->dadosUsuarioLogado.name);
+    atualizarGradeHoraria(this->dataAtual, this->perfilAtual, sala, predio);
 }
 
 void MainWindow::on_listSalas_itemClicked(QListWidgetItem *item) {
@@ -160,21 +174,38 @@ void MainWindow::atualizarGradeHoraria(QDate data, QString perfil, QString sala,
 
         QTableWidgetItem *st = new QTableWidgetItem();
 
-        // Uso da Interface: Consultando o componente DLL
+        // Verifica se existe reserva usando a interface do serviço
         if (reservaService->existeReserva(sala, data, hStr)) {
             Reserva r = reservaService->buscarReserva(sala, data, hStr);
             st->setText("OCUPADO (" + r.perfil + ")");
             st->setBackground(Qt::red);
-            st->setToolTip("Nome: " + r.nome + "\nTel: " + r.telefone);
-        } else {
+
+            // Exibe Email em vez de Telefone conforme solicitado
+            st->setToolTip("Nome: " + r.nome + "\nEmail: " + r.telefone);
+        }
+        else {
             st->setText("Disponível");
             st->setBackground(Qt::green);
+
+            // Restrição para usuários externos conforme regras de negócio
             if (perfil == "Usuário Externo" && (hora < 10 || hora > 16)) {
                 st->setText("Restrito");
                 st->setBackground(Qt::gray);
             }
         }
+
         ui->gridAgenda->setItem(linha, 1, st);
     }
     ui->gridAgenda->horizontalHeader()->setStretchLastSection(true);
+}
+
+void MainWindow::on_btnAreaAdm_clicked() {
+    // Instancia a janela de gestão passando o serviço
+    Adminmodel telaGestao(userService, this);
+
+    // Abre como Modal (o usuário precisa fechar a gestão para voltar à agenda)
+    telaGestao.exec();
+
+    // Dica: Se algo foi alterado na gestão, você pode atualizar a lista de salas aqui
+    // this->carregarSalasNoComboBox();
 }

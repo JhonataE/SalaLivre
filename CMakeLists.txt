@@ -7,9 +7,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+# Adicionado o componente Test para suportar o UnitTests
+find_package(Qt6 REQUIRED COMPONENTS Widgets Test)
 
-# Liste todos os seus arquivos aqui para o Linker encontrá-los
 qt_add_executable(SalaLivre_Sprint1
     main.cpp
     mainwindow.cpp
@@ -18,7 +18,19 @@ qt_add_executable(SalaLivre_Sprint1
     reservalib.cpp
     reservalib.h
     IReservaService.h
+    IUserService.h
+    userservice.h
+    userservice.cpp
+    logindialog.h
+    logindialog.cpp
+    logindialog.ui
+    adminmodel.h adminmodel.cpp adminmodel.ui
+
 )
 
 target_link_libraries(SalaLivre_Sprint1 PRIVATE Qt6::Widgets)
-add_subdirectory(UnitTests)
+
+# Verifica a existência da pasta de testes antes de adicionar o subdiretório
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/UnitTests/CMakeLists.txt")
+    add_subdirectory(UnitTests)
+endif()

@@ -1,0 +1,5 @@
+<map id="LoginDialog" name="LoginDialog">
+<area shape="rect" id="Node000001" title="Gerencia a interface de autenticação, suportando logins institucionais e externos." alt="" coords="5,80,95,107"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="16,5,84,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,46,53,80,47,79,48,50"/>
+</map>

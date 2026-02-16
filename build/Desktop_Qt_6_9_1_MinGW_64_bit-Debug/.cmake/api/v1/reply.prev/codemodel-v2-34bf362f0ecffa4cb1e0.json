@@ -1,0 +1,138 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "UnitTests",
+					"jsonFile" : "directory-UnitTests-Debug-95c6836c1d89eba0bd49.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "UnitTests",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SalaLivre_Sprint1",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "UnitTests",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SalaLivre_Sprint1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SalaLivre_Sprint1-Debug-fd15b7d2359b6875b389.json",
+					"name" : "SalaLivre_Sprint1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SalaLivre_Sprint1_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SalaLivre_Sprint1_autogen-Debug-c57c81cac34d9ec42a91.json",
+					"name" : "SalaLivre_Sprint1_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SalaLivre_Sprint1_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SalaLivre_Sprint1_autogen_timestamp_deps-Debug-513ba978f4d3228ee9bf.json",
+					"name" : "SalaLivre_Sprint1_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "UnitTests::@ccadf856e7f39611d9a4",
+					"jsonFile" : "target-UnitTests-Debug-39d8b56198fb1918c208.json",
+					"name" : "UnitTests",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "UnitTests_autogen::@ccadf856e7f39611d9a4",
+					"jsonFile" : "target-UnitTests_autogen-Debug-4b3f4be7951acfbdb5c3.json",
+					"name" : "UnitTests_autogen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "UnitTests_autogen_timestamp_deps::@ccadf856e7f39611d9a4",
+					"jsonFile" : "target-UnitTests_autogen_timestamp_deps-Debug-94cd496e927a87ac0201.json",
+					"name" : "UnitTests_autogen_timestamp_deps",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

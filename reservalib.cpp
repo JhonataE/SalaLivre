@@ -20,3 +20,4 @@ bool ReservaLib::existeReserva(QString sala, QDate data, QString hora) {
     QString chave = sala + "_" + data.toString("yyyyMMdd") + "_" + hora;
     return banco.contains(chave);
 }
+

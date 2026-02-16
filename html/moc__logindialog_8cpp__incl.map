@@ -1,0 +1,19 @@
+<map id="build/Desktop_Qt_6_9_1_MinGW_64_bit&#45;Debug/SalaLivre_Sprint1_autogen/EWIEGA46WW/moc_logindialog.cpp" name="build/Desktop_Qt_6_9_1_MinGW_64_bit&#45;Debug/SalaLivre_Sprint1_autogen/EWIEGA46WW/moc_logindialog.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="311,5,552,80"/>
+<area shape="rect" id="Node000002" href="$logindialog_8h.html" title="Definição da interface de login e cadastro de usuários." alt="" coords="25,128,166,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,81,155,126,153,121,312,76"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="190,128,329,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="364,82,296,122,294,118,368,79"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="353,128,510,155"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="433,78,434,114,429,111,430,82"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="533,128,602,155"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="484,78,540,119,535,119,483,83"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="626,128,786,155"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="536,78,659,122,654,123,536,83"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,203,74,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,158,61,192,56,189,87,153"/>
+<area shape="rect" id="Node000004" href="$_i_user_service_8h.html" title="Interface para os serviços de usuário (SB01)." alt="" coords="97,203,206,229"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="106,153,135,190,130,191,105,158"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="119,277,184,304"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="153,228,154,263,149,260,150,232"/>
+</map>

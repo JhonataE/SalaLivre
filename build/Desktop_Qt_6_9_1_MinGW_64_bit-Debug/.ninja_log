@@ -1,0 +1,40 @@
+# ninja log v6
+60	1608	7929144270008409	SalaLivre_Sprint1_autogen/timestamp	a49e50d661c34f2b
+60	1608	7929144270008409	SalaLivre_Sprint1_autogen/mocs_compilation.cpp	a49e50d661c34f2b
+60	1608	7929144270008409	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/SalaLivre_Sprint1_autogen/timestamp	a49e50d661c34f2b
+72	5736	7929144256172627	UnitTests/UnitTests_autogen/mocs_compilation.cpp	f33b877ed8b78852
+60	1608	7929144270008409	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/SalaLivre_Sprint1_autogen/mocs_compilation.cpp	a49e50d661c34f2b
+11416	24779	7929144369615118	UnitTests/CMakeFiles/UnitTests.dir/tst_unittests.cpp.obj	b29288cece445d09
+72	5736	7929144256172627	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/UnitTests_autogen/timestamp	f33b877ed8b78852
+72	5736	7929144256172627	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/UnitTests_autogen/mocs_compilation.cpp	f33b877ed8b78852
+72	5736	7929144256172627	UnitTests/UnitTests_autogen/timestamp	f33b877ed8b78852
+3349	11055	7929117304476994	UnitTests/CMakeFiles/UnitTests.dir/UnitTests_autogen/mocs_compilation.cpp.obj	ed786b5f70b4ef02
+1627	11416	7929144271718507	CMakeFiles/SalaLivre_Sprint1.dir/reservalib.cpp.obj	ea2580a7cae5e1e8
+1610	14046	7929144271548530	CMakeFiles/SalaLivre_Sprint1.dir/SalaLivre_Sprint1_autogen/mocs_compilation.cpp.obj	b7e1a4ed260f84
+1615	13446	7929144271598489	CMakeFiles/SalaLivre_Sprint1.dir/main.cpp.obj	a109c51ea1da2048
+12779	19008	7929144383248169	UnitTests/CMakeFiles/UnitTests.dir/__/reservalib.cpp.obj	c04ab74af0be02e0
+1621	14544	7929144271658498	CMakeFiles/SalaLivre_Sprint1.dir/mainwindow.cpp.obj	5aff128499a9ca94
+16956	18278	7929144425017699	SalaLivre_Sprint1.exe	984e6051442cb297
+24779	25534	7929144503253038	UnitTests/UnitTests.exe	ad8c61b8f1e99efd
+442	5183	7929127304524485	CMakeFiles/SalaLivre_Sprint1.dir/userservice.cpp.obj	5d61dba2f2df58e5
+41	116	7928626669233474	CMakeFiles/clean.additional	baedbe210acaa455
+117	135	7928626669994234	clean	577b940aee94fbd7
+1632	12779	7929144271768498	CMakeFiles/SalaLivre_Sprint1.dir/logindialog.cpp.obj	405d4ce8303fc509
+5737	16956	7929144312820016	CMakeFiles/SalaLivre_Sprint1.dir/adminmodel.cpp.obj	41d9d36c26d0517b
+481	5326	7929127304914581	UnitTests/CMakeFiles/UnitTests.dir/__/userservice.cpp.obj	b111da5614818dff
+486	8028	7929130470741142	UnitTests/CMakeFiles/UnitTests.dir/__/adminmodel.cpp.obj	aadf115024e80418
+488	12051	7929120116405399	UnitTests/CMakeFiles/UnitTests.dir/tst_adminmoduletests.cpp.obj	bbd970eefae9f4e8
+73	475	7929144534668548	SalaLivre_Sprint1_autogen/timestamp	a49e50d661c34f2b
+73	475	7929144534668548	SalaLivre_Sprint1_autogen/mocs_compilation.cpp	a49e50d661c34f2b
+73	475	7929144534668548	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/SalaLivre_Sprint1_autogen/timestamp	a49e50d661c34f2b
+73	475	7929144534668548	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/SalaLivre_Sprint1_autogen/mocs_compilation.cpp	a49e50d661c34f2b
+84	526	7929144534788510	UnitTests/UnitTests_autogen/timestamp	f33b877ed8b78852
+84	526	7929144534788510	UnitTests/UnitTests_autogen/mocs_compilation.cpp	f33b877ed8b78852
+84	526	7929144534788510	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/UnitTests_autogen/timestamp	f33b877ed8b78852
+84	526	7929144534788510	C:/Users/Jhonata E/Downloads/UFOP/6_periodo/engSoftware/sprint_grupo/SalaLivre/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/UnitTests/UnitTests_autogen/mocs_compilation.cpp	f33b877ed8b78852
+485	6451	7929144538788674	CMakeFiles/SalaLivre_Sprint1.dir/logindialog.cpp.obj	405d4ce8303fc509
+495	7119	7929144538898655	CMakeFiles/SalaLivre_Sprint1.dir/adminmodel.cpp.obj	41d9d36c26d0517b
+477	7529	7929144538718639	CMakeFiles/SalaLivre_Sprint1.dir/mainwindow.cpp.obj	5aff128499a9ca94
+7530	8218	7929144609237331	SalaLivre_Sprint1.exe	984e6051442cb297
+271	38261	7929146828381438	UnitTests/CMakeFiles/UnitTests.dir/__/adminmodel.cpp.obj	aadf115024e80418
+38266	43061	7929147208326644	UnitTests/UnitTests.exe	ad8c61b8f1e99efd

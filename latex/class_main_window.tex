@@ -1,0 +1,90 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+Gerencia a interface de agendamento e integra os serviços de reserva e usuário.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_main_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_afebe1fb10d28d3d3aa654ff46c615998}{Main\+Window}} (\mbox{\hyperlink{class_i_user_service}{IUser\+Service}} \texorpdfstring{$\ast$}{*}service, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construtor da \doxylink{class_main_window}{Main\+Window}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_main_window}{Main\+Window}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gerencia a interface de agendamento e integra os serviços de reserva e usuário. 
+
+\label{doc-constructors}
+\Hypertarget{class_main_window_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_window_afebe1fb10d28d3d3aa654ff46c615998}\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_afebe1fb10d28d3d3aa654ff46c615998} 
+Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_user_service}{IUser\+Service}} \texorpdfstring{$\ast$}{*}}]{service}{, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construtor da \doxylink{class_main_window}{Main\+Window}. 
+
+Construtor da classe \doxylink{class_main_window}{Main\+Window}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em service} & Ponteiro para a interface do serviço de usuários (Injeção de Dependência). \\
+\hline
+{\em parent} & Widget pai (opcional).\\
+\hline
+\end{DoxyParams}
+Inicializa os serviços e recupera os dados do usuário logado via \doxylink{class_user_service}{User\+Service}.
+
+Inicializa os serviços de reserva, configura a tabela de horários e recupera os dados do usuário logado via \doxylink{class_user_service}{User\+Service} para controle de permissões. 
+\begin{DoxyParams}{Parameters}
+{\em service} & Ponteiro para a interface do serviço de usuários. \\
+\hline
+{\em parent} & Ponteiro para o widget pai. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
+\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destrutor da classe \doxylink{class_main_window}{Main\+Window}. 
+
+Realiza a limpeza da memória desalocando a interface UI e o serviço de reservas. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

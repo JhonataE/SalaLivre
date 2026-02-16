@@ -1,0 +1,11 @@
+<map id="userservice.h" name="userservice.h">
+<area shape="rect" id="Node000001" title="Implementação concreta do serviço de usuários." alt="" coords="252,5,351,32"/>
+<area shape="rect" id="Node000002" href="$tst__adminmoduletests_8cpp.html" title="Testes das funcionalidades administrativas implementadas na Sprint 2." alt="" coords="5,80,240,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="254,40,155,82,153,77,258,37"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Ponto de entrada principal do sistema SalaLivre." alt="" coords="264,80,338,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,46,303,81,299,78,300,50"/>
+<area shape="rect" id="Node000005" href="$userservice_8cpp.html" title="Implementação dos serviços de gerenciamento de usuários e autenticação." alt="" coords="362,80,475,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="335,38,401,79,395,79,334,43"/>
+<area shape="rect" id="Node000003" href="$tst__unittests_8cpp.html" title="Testes unitários para as funcionalidades de reserva e visualização da Sprint 1." alt="" coords="33,155,212,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,121,125,155,120,153,121,124"/>
+</map>

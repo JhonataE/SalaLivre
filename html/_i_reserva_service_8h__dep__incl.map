@@ -1,0 +1,21 @@
+<map id="IReservaService.h" name="IReservaService.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="194,5,323,32"/>
+<area shape="rect" id="Node000002" href="$tst__unittests_8cpp.html" title="Testes unitários para as funcionalidades de reserva e visualização da Sprint 1." alt="" coords="5,179,184,205"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,46,109,180,105,176,236,41"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8h.html" title="Classe principal para a interface do sistema SalaLivre." alt="" coords="444,80,548,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="314,34,457,78,452,80,314,40"/>
+<area shape="rect" id="Node000008" href="$reservalib_8h.html" title="Definição da classe ReservaLib para persistência de dados." alt="" coords="214,80,303,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="260,45,261,80,256,79,257,50"/>
+<area shape="rect" id="Node000004" href="$moc__mainwindow_8cpp.html" title=" " alt="" coords="474,155,726,229"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="521,115,563,154,558,154,520,120"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Ponto de entrada principal do sistema SalaLivre." alt="" coords="749,179,824,205"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="563,102,648,120,694,134,738,152,775,178,770,178,736,157,693,140,647,126,563,107"/>
+<area shape="rect" id="Node000007" href="$mainwindow_8cpp.html" title="Implementação da janela principal do sistema SalaLivre." alt="" coords="333,179,450,205"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="473,116,407,181,404,176,469,119"/>
+<area shape="rect" id="Node000005" href="$_sala_livre___sprint1__autogen_2mocs__compilation_8cpp.html" title=" " alt="" coords="508,277,692,352"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="602,243,602,279,598,275,598,247"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="223,117,118,180,114,176,225,112"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="289,113,377,178,372,179,288,119"/>
+<area shape="rect" id="Node000009" href="$reservalib_8cpp.html" title=" " alt="" coords="207,179,310,205"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="260,120,261,179,256,177,257,125"/>
+</map>
