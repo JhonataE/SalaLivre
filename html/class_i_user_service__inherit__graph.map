@@ -1,5 +1,0 @@
-<map id="IUserService" name="IUserService">
-<area shape="rect" id="Node000001" title="Interface abstrata que define as operações de usuário." alt="" coords="5,5,103,32"/>
-<area shape="rect" id="Node000002" href="$class_user_service.html" title="Classe que gerencia usuários em memória (Simulação de Banco de Dados)." alt="" coords="7,80,101,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,46,57,80,51,79,52,50"/>
-</map>

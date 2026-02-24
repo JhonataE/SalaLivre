@@ -1,9 +1,0 @@
-<map id="IReservaService.h" name="IReservaService.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="60,5,189,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,71,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,32,66,72,63,68,107,33"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="95,80,154,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,31,127,65,122,63,123,35"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="178,80,234,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,30,183,69,178,70,138,35"/>
-</map>
