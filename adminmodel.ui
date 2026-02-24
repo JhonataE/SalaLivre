@@ -29,24 +29,11 @@
     <attribute name="title">
      <string>Tab 1</string>
     </attribute>
-    <widget class="QPushButton" name="btnNovaUnidade">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>140</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Cadastrar Unidade</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnGerenciarUnidade">
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>180</y>
+       <y>150</y>
        <width>151</width>
        <height>24</height>
       </rect>
@@ -55,24 +42,11 @@
       <string>Gerenciar Unidade</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnRemoverUnidade">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>220</y>
-       <width>151</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Remover Unidade</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnRegrasUnidade">
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>260</y>
+       <y>200</y>
        <width>151</width>
        <height>24</height>
       </rect>
@@ -224,6 +198,58 @@
      </property>
      <property name="text">
       <string>Salvar atributos</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>151</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Status Unidade/Sala</string>
+     </property>
+     <widget class="QCheckBox" name="checkManutencao">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Manutenção</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkUsoExterno">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Externo</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="btnSair">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>0</y>
+       <width>75</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sair</string>
      </property>
     </widget>
    </widget>

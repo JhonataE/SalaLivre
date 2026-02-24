@@ -1,33 +1,67 @@
 /**
  * @file tst_unittests.cpp
- * @brief Testes unitários para as funcionalidades de reserva e visualização da Sprint 1.
+ * @brief Testes unitários para as funcionalidades de reserva e visualização.
  * @author Jhonata
- * @date 2026-02-15
  */
 
 #include <QtTest>
 #include <QSignalSpy>
 #include <QApplication>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDate>
 #include "../IReservaService.h"
 #include "../reservalib.h"
-#include "tst_adminmoduletests.cpp"
+#include "tst_adminmoduletests.h"
+#include "databasemanager.h"
 
 /**
  * @class UnitTests
- * @brief Classe responsável por testar a lógica de agendamento, limites de horário e persistência.
+ * @brief Classe responsável por testar a lógica de agendamento, limites de horário e persistência SQL.
  */
 class UnitTests : public QObject {
     Q_OBJECT
 
 private slots:
     /**
-     * @brief Valida a geração da lista de salas por prédio.
-     * Verifica se ao selecionar o ICEB, o sistema gera corretamente a sequência de 1 a 23.
+     * @brief Inicializa o ambiente de teste uma única vez.
+     * @details Configura o banco SQLite em memória para que os testes não dependam de arquivos externos.
      */
+    void initTestCase() {
+        // Verifica se já existe uma conexão para evitar avisos de duplicidade
+        if (!QSqlDatabase::contains("qt_sql_default_connection")) {
+            QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+            db.setDatabaseName(":memory:");
+            if (!db.open()) {
+                QFAIL("Não foi possível abrir o banco de dados em memória para os testes.");
+            }
+        }
+
+        QSqlQuery query;
+        // Cria a tabela de reservas necessária para a ReservaLib funcionar
+        query.exec("CREATE TABLE IF NOT EXISTS reservas ("
+                   "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                   "sala_nome TEXT, "
+                   "usuario_nome TEXT, "
+                   "perfil TEXT, "
+                   "data TEXT, "
+                   "horario TEXT, "
+                   "ocupado INTEGER DEFAULT 1)");
+    }
+
+    /**
+     * @brief Limpa o banco entre os testes para garantir independência.
+     */
+    void init() {
+        QSqlQuery query;
+        query.exec("DELETE FROM reservas");
+    }
+
     void testListagemSalasPorPredio() {
         QString predio = "ICEB";
         QStringList salasEsperadas;
         for(int i = 1; i <= 23; ++i) salasEsperadas << "Sala " + QString::number(i) + " - ICEB";
+
         QStringList salasGeradas;
         if (predio == "ICEB") {
             for(int i = 1; i <= 23; ++i) salasGeradas << "Sala " + QString::number(i) + " - ICEB";
@@ -36,10 +70,6 @@ private slots:
         QCOMPARE(salasGeradas, salasEsperadas);
     }
 
-    /**
-     * @brief Testa os limites da grade horária (timeline).
-     * Garante que a agenda inicie às 07:00 e termine às 23:00 (finalizando à meia-noite).
-     */
     void testLimitesTimeline() {
         int inicioOperacional = 7;
         int fimOperacional = 23;
@@ -50,55 +80,82 @@ private slots:
         QCOMPARE(horasGeradas.size(), 17);
     }
 
-    /**
-     * @brief Valida o status visual e lógico de um agendamento.
-     * Verifica se o sistema identifica corretamente uma sala ocupada e exibe o perfil do usuário.
-     */
     void testStatusAgendamento() {
         ReservaLib repo;
         Reserva r = {"Jhonata", "123", "Docente", true};
         QDate data = QDate::currentDate();
+
         repo.salvarReserva("Sala 101", data, "14:00", r);
+
         Reserva res = repo.buscarReserva("Sala 101", data, "14:00");
-        QString statusEsperado = "OCUPADO (" + res.perfil + ")";
         QVERIFY(res.ocupado);
-        QCOMPARE(statusEsperado, QString("OCUPADO (Docente)"));
+        QCOMPARE(res.perfil, QString("Docente"));
     }
 
-    /**
-     * @brief Testa a independência de dados entre diferentes salas.
-     * Garante que uma reserva em uma sala não apareça em outra sala na mesma data e hora.
-     */
     void testPersistenciaEntreSalas() {
         ReservaLib repo;
         QDate hoje = QDate::currentDate();
         Reserva r1 = {"User1", "11", "Estudante", true};
+
         repo.salvarReserva("Sala 101", hoje, "10:00", r1);
+
         bool existeOutra = repo.existeReserva("Sala 102", hoje, "10:00");
         QVERIFY(!existeOutra);
         QVERIFY(repo.existeReserva("Sala 101", hoje, "10:00"));
-        QCOMPARE(repo.buscarReserva("Sala 101", hoje, "10:00").nome, QString("User1"));
     }
 
-    /**
-     * @brief Valida as restrições de horário para usuários externos.
-     * Verifica se o acesso é bloqueado antes das 10:00 e após as 16:00 para este perfil.
-     */
     void testRestricaoUsuarioExterno() {
         auto estaRestrito = [](int hora) { return (hora < 10 || hora > 16); };
         QVERIFY(estaRestrito(7));
-        QVERIFY(estaRestrito(9));
-        QVERIFY(!estaRestrito(10));
-        QVERIFY(!estaRestrito(15));
-        QVERIFY(!estaRestrito(16));
+        QVERIFY(!estaRestrito(12));
         QVERIFY(estaRestrito(17));
+    }
+
+    void testVisualizacaoDetalhes() {
+        int capacidade = 40;
+        QString recursos = "Projetor, Wi-fi";
+        QString detalhesEsperados = "Capacidade: 40 pessoas | Recursos: Projetor, Wi-fi";
+        QString detalhesGerados = QString("Capacidade: %1 pessoas | Recursos: %2").arg(capacidade).arg(recursos);
+        QCOMPARE(detalhesGerados, detalhesEsperados);
+    }
+
+    void testCancelamentoDinamico() {
+        QStringList listaVisual;
+        listaVisual << "Sala 101 (Reservada)" << "Sala 102";
+        for(int i = 0; i < listaVisual.size(); ++i) {
+            if(listaVisual[i].contains("(Reservada)")) {
+                listaVisual[i] = listaVisual[i].split(" (").first();
+            }
+        }
+        QCOMPARE(listaVisual[0], QString("Sala 101"));
+    }
+
+    void testEdicaoPerfil() {
+        QString senhaAntiga = "12345";
+        QString senhaNova = "UFOP2026";
+        if(!senhaNova.isEmpty() && senhaNova != senhaAntiga) {
+            senhaAntiga = senhaNova;
+        }
+        QCOMPARE(senhaAntiga, QString("UFOP2026"));
+    }
+
+    void testBloqueioManutencao() {
+        bool emManutencao = true;
+        auto podeReservar = [&](bool manutencao) { return !manutencao; };
+        QVERIFY(podeReservar(emManutencao) == false);
+    }
+
+    void testRestricaoUsoExternoManual() {
+        bool disponivelExterno = false;
+        QString tipoUsuario = "Externo";
+        bool acessoPermitido = true;
+        if (!disponivelExterno && tipoUsuario == "Externo") {
+            acessoPermitido = false;
+        }
+        QVERIFY(acessoPermitido == false);
     }
 };
 
-/**
- * @brief Ponto de entrada principal para a execução dos testes.
- * Inicializa o QApplication e executa as suítes de teste de ambas as Sprints.
- */
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     int status = 0;

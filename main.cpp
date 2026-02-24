@@ -1,44 +1,36 @@
 /**
  * @file main.cpp
- * @brief Ponto de entrada principal do sistema SalaLivre.
- * @author Jhonata
- * @date 2026-02-15
- * @details Gerencia o ciclo de vida da aplicação, controlando o fluxo entre a tela de login
- * e a abertura da janela principal conforme a autenticação do usuário.
+ * @brief Ponto de entrada principal do sistema SalaLivre com integração SQL.
  */
 
 #include "mainwindow.h"
 #include "logindialog.h"
 #include "userservice.h"
+#include "databasemanager.h" // ADICIONADO
 #include <QApplication>
-#include "adminmodel.h"
+#include <QMessageBox>
 
-/**
- * @brief Função principal do sistema.
- * @details Inicializa o ambiente do Qt, gerencia a autenticação via LoginDialog e
- * decide se a MainWindow deve ser exibida com base no resultado do login.
- * @param argc Contador de argumentos de linha de comando.
- * @param argv Vetor de argumentos de linha de comando.
- * @return int Status de saída da aplicação.
- */
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
-    // Inicialização do serviço de usuários e diálogo de login
+    // 1. INICIALIZAÇÃO DO BANCO DE DADOS (CRUCIAL)
+    DatabaseManager dbManager;
+    if (!dbManager.abrirConexao()) {
+        QMessageBox::critical(nullptr, "Erro Crítico", "Não foi possível abrir o banco de dados.");
+        return -1;
+    }
+    dbManager.criarTabelasIniciais(); // Cria tabelas e usuário admin
+
+    // 2. INICIALIZAÇÃO DOS SERVIÇOS
     UserService userService;
     LoginDialog login(&userService);
 
-    // Executa o diálogo de login de forma modal
+    // 3. EXECUÇÃO DO LOGIN (Chamamos o exec() apenas UMA vez)
     int result = login.exec();
 
-    // Se o login for de um Admin (Código 2 definido no LoginDialog)
-    if (login.exec() == QDialog::Accepted || result == 2) {
-        MainWindow w(&userService); // A mesma janela para todos
-        w.show();
-        return a.exec();
-    }
-    // Se o login for bem-sucedido para Aluno/Docente/Externo (Código 1)
-    else if (result == QDialog::Accepted) {
+    // 4. CONTROLE DE FLUXO
+    // Verificamos se o resultado foi Aceito (independente se é admin ou user comum)
+    if (result == QDialog::Accepted || result == 2) {
         MainWindow w(&userService);
         w.show();
         return a.exec();

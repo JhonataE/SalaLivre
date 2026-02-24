@@ -42,6 +42,10 @@ private slots:
     void on_listSalas_itemClicked(QListWidgetItem *item);
     void on_gridAgenda_cellClicked(int row, int column);
     void on_btnAreaAdm_clicked();
+    void on_btnEditarPerfil_clicked();
+    void on_btnVerDetalhes_clicked();
+    void on_btnCancelarReserva_clicked();
+
 
 private:
     Ui::MainWindow *ui;

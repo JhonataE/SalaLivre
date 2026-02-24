@@ -31,7 +31,7 @@ private slots:
     void on_btnSalvarAtributosSala_clicked();
     void atualizarComboSalas(const QString &unidade);
     // Controle
-    void on_btnSair_clicked();
+    void fecharJanela();
 
 private:
     Ui::Adminmodel *ui;

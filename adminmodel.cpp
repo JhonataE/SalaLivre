@@ -1,6 +1,6 @@
 /**
  * @file adminmodel.cpp
- * @brief Implementação do módulo de administração do sistema SalaLivre.
+ * @brief Implementação do módulo de administração do sistema SalaLivre com persistência SQL.
  * @author Jhonata
  * @details Contém a lógica para gerenciamento de unidades acadêmicas, criação de salas
  * e edição de atributos físicos como capacidade e recursos disponíveis.
@@ -9,6 +9,9 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QLineEdit>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlDatabase>
 
 #include "adminmodel.h"
 #include "ui_adminmodel.h"
@@ -40,10 +43,10 @@ Adminmodel::~Adminmodel() { delete ui; }
 
 /**
  * @brief Slot para gerenciar ações relacionadas às unidades (Prédios).
- * @details Abre diálogos para cadastrar novas unidades, editar nomes ou remover unidades existentes.
+ * @details Abre diálogos para cadastrar novas unidades, editar nomes ou remover unidades existentes no banco de dados.
  */
 void Adminmodel::on_btnGerenciarUnidade_clicked() {
-    QStringList opcoes = {"Cadastrar Nova", "Editar Nome", "Remover Unidade"};
+    QStringList opcoes = {"Cadastrar Nova", "Remover Unidade"};
     bool ok;
     QString acao = QInputDialog::getItem(this, "Unidades", "Selecione a ação:", opcoes, 0, false, &ok);
 
@@ -51,13 +54,28 @@ void Adminmodel::on_btnGerenciarUnidade_clicked() {
         if (acao == "Cadastrar Nova") {
             QString nome = QInputDialog::getText(this, "Novo", "Nome da Unidade:", QLineEdit::Normal, "", &ok);
             if (ok && !nome.isEmpty()) {
-                // Lógica de salvamento no serviço
-                QMessageBox::information(this, "Sucesso", "Unidade " + nome + " cadastrada.");
+                // PERSISTÊNCIA: Cadastra a unidade no banco (usando uma sala dummy para criar a unidade se necessário)
+                QSqlQuery query;
+                query.prepare("INSERT INTO salas (nome, unidade) VALUES (:nome, :unidade)");
+                query.bindValue(":nome", "Sala Inicial - " + nome);
+                query.bindValue(":unidade", nome);
+
+                if(query.exec()) {
+                    atualizarListas();
+                    QMessageBox::information(this, "Sucesso", "Unidade " + nome + " cadastrada no banco de dados.");
+                }
             }
         } else if (acao == "Remover Unidade") {
-            // Exemplo de confirmação de segurança para evitar exclusões acidentais
-            auto res = QMessageBox::question(this, "Aviso", "Tem certeza? Isso afetará todas as salas vinculadas.");
-            if (res == QMessageBox::Yes) { /* m_service->removerUnidade(...) */ }
+            auto res = QMessageBox::question(this, "Aviso", "Tem certeza? Isso excluirá todas as salas vinculadas a esta unidade no banco.");
+            if (res == QMessageBox::Yes) {
+                QSqlQuery query;
+                query.prepare("DELETE FROM salas WHERE unidade = :unidade");
+                query.bindValue(":unidade", ui->comboUnidades->currentText());
+                if(query.exec()) {
+                    atualizarListas();
+                    QMessageBox::information(this, "Sucesso", "Unidade e salas removidas.");
+                }
+            }
         }
     }
 }
@@ -80,68 +98,99 @@ void Adminmodel::on_btnRegrasUnidade_clicked() {
 
 /**
  * @brief Slot para criação de uma nova sala na unidade atual.
- * @details Solicita o identificador da sala e a vincula automaticamente à unidade selecionada no comboUnidades.
+ * @details Solicita o identificador da sala e a vincula automaticamente à unidade selecionada no banco de dados.
  */
 void Adminmodel::on_btnNovaSala_clicked() {
     bool ok;
     QString idSala = QInputDialog::getText(this, "Nova Sala", "Identificador/Número da Sala:", QLineEdit::Normal, "", &ok);
+
     if (ok && !idSala.isEmpty()) {
-        // Vincula à unidade selecionada no ComboBox da interface
-        QString unidade = ui->comboUnidades->currentText();
-        QMessageBox::information(this, "Sucesso", "Sala " + idSala + " criada no " + unidade);
+        QString unidadeAtual = ui->comboUnidades->currentText();
+        QString nomeCompleto = "Sala " + idSala + " - " + unidadeAtual;
+
+        // PERSISTÊNCIA: Insere a nova sala no banco
+        QSqlQuery query;
+        query.prepare("INSERT INTO salas (nome, unidade, manutencao, uso_externo) VALUES (:nome, :unidade, 0, 1)");
+        query.bindValue(":nome", nomeCompleto);
+        query.bindValue(":unidade", unidadeAtual);
+
+        if (query.exec()) {
+            atualizarComboSalas(unidadeAtual);
+            QMessageBox::information(this, "Sucesso", "Sala " + idSala + " persistida no banco de dados.");
+        } else {
+            QMessageBox::warning(this, "Erro", "Erro ao criar sala: " + query.lastError().text());
+        }
     }
 }
 
 /**
  * @brief Slot para salvar as edições de atributos de uma sala.
- * @details Captura a capacidade (spinCapacidade) e os recursos (txtRecursos) para atualizar a sala selecionada.
+ * @details Captura a capacidade, recursos e status (Manutenção/Uso Externo) para atualizar o banco de dados.
  */
 void Adminmodel::on_btnSalvarAtributosSala_clicked() {
-    // Captura dados direto dos campos da interface (sem abrir nova tela)
-    int capacidade = ui->spinCapacidade->value();
-    QString recursos = ui->txtRecursos->text();
     QString salaAlvo = ui->comboSalasEdicao->currentText();
-
     if (salaAlvo.isEmpty()) {
         QMessageBox::warning(this, "Erro", "Selecione uma sala para editar.");
         return;
     }
 
-    // Persistência de dados através do serviço de administração
-    QMessageBox::information(this, "Atualizado", "Atributos da " + salaAlvo + " salvos com sucesso.");
+    bool emManutencao = ui->checkManutencao->isChecked();
+    bool usoExterno = ui->checkUsoExterno->isChecked();
+
+    // PERSISTÊNCIA: Atualiza os status da sala no banco de dados
+    QSqlQuery query;
+    query.prepare("UPDATE salas SET manutencao = :manut, uso_externo = :ext WHERE nome = :nome");
+    query.bindValue(":manut", emManutencao ? 1 : 0);
+    query.bindValue(":ext", usoExterno ? 1 : 0);
+    query.bindValue(":nome", salaAlvo);
+
+    if (query.exec()) {
+        QMessageBox::information(this, "Sucesso", "Status da " + salaAlvo + " salvos permanentemente!");
+    } else {
+        QMessageBox::critical(this, "Erro", "Falha ao atualizar banco: " + query.lastError().text());
+    }
 }
 
 /**
  * @brief Slot para fechar a janela de administração.
  */
-void Adminmodel::on_btnSair_clicked() { this->close(); }
-
+void Adminmodel::fecharJanela() {
+    this->close();
+}
 /**
- * @brief Inicializa as listas de unidades e salas na interface.
- * @details Define os prédios padrão (ICEB, DEMIN, Bloco de Salas) e dispara a atualização de salas inicial.
+ * @brief Inicializa as listas de unidades e salas buscando do banco de dados.
+ * @details Busca todas as unidades cadastradas na tabela 'salas' para popular o combo.
  */
 void Adminmodel::atualizarListas() {
     ui->comboUnidades->clear();
-    // Unidades reais da UFOP conforme definido nos requisitos
-    ui->comboUnidades->addItems({"ICEB", "DEMIN", "Bloco de Salas"});
+
+    QSqlQuery query("SELECT DISTINCT unidade FROM salas");
+    while (query.next()) {
+        ui->comboUnidades->addItem(query.value(0).toString());
+    }
+
+    if (ui->comboUnidades->count() == 0) {
+        ui->comboUnidades->addItems({"ICEB", "DEMIN", "Bloco de Salas"});
+    }
 
     atualizarComboSalas(ui->comboUnidades->currentText());
 }
 
 /**
- * @brief Atualiza dinamicamente o seletor de salas com base na unidade acadêmica.
- * @details Implementa as sequências de salas para ICEB (1-23), DEMIN (1-16) e Bloco de Salas (101-213).
+ * @brief Atualiza dinamicamente o seletor de salas com base no banco de dados.
+ * @details Realiza uma consulta SQL filtrando pelo nome da unidade selecionada.
  * @param unidade Nome da unidade selecionada para filtragem.
  */
 void Adminmodel::atualizarComboSalas(const QString &unidade) {
     ui->comboSalasEdicao->clear();
 
-    if (unidade == "ICEB") {
-        for(int i=1; i<=23; ++i) ui->comboSalasEdicao->addItem("Sala " + QString::number(i));
-    } else if (unidade == "DEMIN") {
-        for(int i=1; i<=16; ++i) ui->comboSalasEdicao->addItem("Sala " + QString::number(i));
-    } else if (unidade == "Bloco de Salas") {
-        for(int i=101; i<=106; ++i) ui->comboSalasEdicao->addItem("Sala " + QString::number(i));
-        for(int i=201; i<=213; ++i) ui->comboSalasEdicao->addItem("Sala " + QString::number(i));
+    QSqlQuery query;
+    query.prepare("SELECT nome FROM salas WHERE unidade = :unidade");
+    query.bindValue(":unidade", unidade);
+
+    if(query.exec()) {
+        while(query.next()) {
+            ui->comboSalasEdicao->addItem(query.value(0).toString());
+        }
     }
 }
