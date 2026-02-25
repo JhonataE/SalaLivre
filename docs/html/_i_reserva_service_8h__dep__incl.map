@@ -1,0 +1,17 @@
+<map id="IReservaService.h" name="IReservaService.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="231,5,360,32"/>
+<area shape="rect" id="Node000002" href="$tst__unittests_8cpp.html" title="Testes unitários para as funcionalidades de reserva e visualização." alt="" coords="371,155,549,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,40,449,154,443,154,320,45"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8h.html" title="Classe principal para a interface do sistema SalaLivre." alt="" coords="111,80,214,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,41,187,82,185,77,262,38"/>
+<area shape="rect" id="Node000006" href="$reservalib_8h.html" title="Definição da classe ReservaLib para persistência de dados." alt="" coords="252,80,340,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="297,46,298,81,294,78,294,50"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Ponto de entrada principal do sistema SalaLivre com integração SQL." alt="" coords="5,155,80,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="131,117,65,156,62,152,127,113"/>
+<area shape="rect" id="Node000005" href="$mainwindow_8cpp.html" title="Implementação da janela principal do sistema SalaLivre com integração SQL." alt="" coords="104,155,221,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="164,121,165,156,160,153,161,124"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="339,111,434,154,428,154,338,116"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="262,114,187,156,185,152,257,115"/>
+<area shape="rect" id="Node000007" href="$reservalib_8cpp.html" title=" " alt="" coords="245,155,347,181"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="298,121,298,156,294,153,294,124"/>
+</map>

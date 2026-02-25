@@ -1,0 +1,28 @@
+<map id="adminmodel.cpp" name="adminmodel.cpp">
+<area shape="rect" id="Node000001" title="Implementação do módulo de administração do sistema SalaLivre com persistência SQL." alt="" coords="325,5,441,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,113,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,35,129,79,127,74,327,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="262,155,360,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="322,30,237,52,199,66,177,82,172,93,172,103,177,112,186,121,214,137,250,151,245,152,212,142,183,125,172,115,167,104,166,92,173,78,197,61,235,47,327,27"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="186,80,265,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="353,34,268,75,266,71,358,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="288,80,374,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="376,31,351,69,347,65,372,34"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="397,80,476,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="393,30,421,68,415,67,392,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="499,80,606,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="413,30,511,73,506,74,412,35"/>
+<area shape="rect" id="Node000008" href="$adminmodel_8h.html" title=" " alt="" coords="629,80,732,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="435,30,617,75,612,77,435,35"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="755,80,875,107"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="442,27,742,78,738,81,442,32"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="626,106,375,157,374,152,631,104"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="545,155,613,181"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="665,106,610,148,608,143,660,108"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="637,155,724,181"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="682,105,682,141,678,137,679,109"/>
+<area shape="rect" id="Node000011" href="$_i_user_service_8h.html" title="Interface para os serviços de usuário (SB01)." alt="" coords="748,155,856,181"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="702,105,770,147,765,146,701,110"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="769,229,834,256"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="804,180,804,215,800,212,800,184"/>
+</map>
