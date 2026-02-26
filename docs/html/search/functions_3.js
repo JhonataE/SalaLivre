@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['reservalib_0',['ReservaLib',['../class_reserva_lib.html#aa3bf81bab8de53a2ffed0f95ac23cac7',1,'ReservaLib']]],
-  ['retranslateui_1',['retranslateUi',['../class_ui___main_window.html#a097dd160c3534a204904cb374412c618',1,'Ui_MainWindow']]]
+  ['databasemanager_0',['DatabaseManager',['../class_database_manager.html#aa162d97472e6c31a4e873adda435dbb6',1,'DatabaseManager']]]
 ];

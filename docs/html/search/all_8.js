@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['info_5farch_0',['info_arch',['../_c_make_c_compiler_id_8c.html#a59647e99d304ed33b15cb284c27ed391',1,'info_arch:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a59647e99d304ed33b15cb284c27ed391',1,'info_arch:&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5fcompiler_1',['info_compiler',['../_c_make_c_compiler_id_8c.html#a4b0efeb7a5d59313986b3a0390f050f6',1,'info_compiler:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a4b0efeb7a5d59313986b3a0390f050f6',1,'info_compiler:&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5flanguage_5fextensions_5fdefault_2',['info_language_extensions_default',['../_c_make_c_compiler_id_8c.html#a0f46a8a39e09d9b803c4766904fd7e99',1,'info_language_extensions_default:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0f46a8a39e09d9b803c4766904fd7e99',1,'info_language_extensions_default:&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5flanguage_5fstandard_5fdefault_3',['info_language_standard_default',['../_c_make_c_compiler_id_8c.html#a4607cccf070750927b458473ca82c090',1,'info_language_standard_default:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a4607cccf070750927b458473ca82c090',1,'info_language_standard_default:&#160;CMakeCXXCompilerId.cpp']]],
-  ['info_5fplatform_4',['info_platform',['../_c_make_c_compiler_id_8c.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a2321403dee54ee23f0c2fa849c60f7d4',1,'info_platform:&#160;CMakeCXXCompilerId.cpp']]],
-  ['ireservaservice_5',['IReservaService',['../class_i_reserva_service.html',1,'']]],
-  ['ireservaservice_2eh_6',['IReservaService.h',['../_i_reserva_service_8h.html',1,'']]]
+  ['login_0',['login',['../class_i_user_service.html#a87191aada43be34c0d530b269ac23ed3',1,'IUserService::login()'],['../class_user_service.html#a2156e68f2b11ac168e10ffb711b49f7a',1,'UserService::login()']]],
+  ['logindialog_1',['LoginDialog',['../class_login_dialog.html',1,'LoginDialog'],['../class_login_dialog.html#a1949d3b818baa007262c6d0b6928f9ea',1,'LoginDialog::LoginDialog()']]],
+  ['logindialog_2ecpp_2',['logindialog.cpp',['../logindialog_8cpp.html',1,'']]],
+  ['logindialog_2eh_3',['logindialog.h',['../logindialog_8h.html',1,'']]],
+  ['logout_4',['logout',['../class_i_user_service.html#a302903f7b679dc2cbf85b9ea21683c01',1,'IUserService::logout()'],['../class_user_service.html#a3aef1bc9119aade1bfd8b55b58799af8',1,'UserService::logout()']]]
 ];

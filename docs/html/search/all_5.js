@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['existereserva_0',['existeReserva',['../class_i_reserva_service.html#ada878229a5ec248c5434d7d2af8f9b86',1,'IReservaService::existeReserva()'],['../class_reserva_lib.html#a5ea5c5edf0d227ddc406323bf9a7debb',1,'ReservaLib::existeReserva()']]]
+  ['fecharconexao_0',['fecharConexao',['../class_database_manager.html#a3799504200bfffb58885eac7a6ef44ae',1,'DatabaseManager']]]
 ];

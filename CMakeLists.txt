@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.16)
 project(SalaLivre_Sprint1 LANGUAGES CXX)
 
@@ -7,9 +8,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+# Encontra todos os pacotes de uma vez
+find_package(Qt6 REQUIRED COMPONENTS Widgets Test Sql Core)
 
-# Liste todos os seus arquivos aqui para o Linker encontrá-los
 qt_add_executable(SalaLivre_Sprint1
     main.cpp
     mainwindow.cpp
@@ -18,7 +19,25 @@ qt_add_executable(SalaLivre_Sprint1
     reservalib.cpp
     reservalib.h
     IReservaService.h
+    IUserService.h
+    userservice.h
+    userservice.cpp
+    logindialog.h
+    logindialog.cpp
+    logindialog.ui
+    adminmodel.h adminmodel.cpp adminmodel.ui
+    databasemanager.h databasemanager.cpp
+
+
 )
 
-target_link_libraries(SalaLivre_Sprint1 PRIVATE Qt6::Widgets)
-add_subdirectory(UnitTests)
+# Vincula as bibliotecas ao executável principal
+target_link_libraries(SalaLivre_Sprint1 PRIVATE
+    Qt6::Widgets
+    Qt6::Sql
+    Qt6::Core
+)
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/UnitTests/CMakeLists.txt")
+    add_subdirectory(UnitTests)
+endif()

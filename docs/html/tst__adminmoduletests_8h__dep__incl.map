@@ -1,0 +1,7 @@
+<map id="UnitTests/tst_adminmoduletests.h" name="UnitTests/tst_adminmoduletests.h">
+<area shape="rect" id="Node000001" title="Definição da classe de testes do módulo administrativo." alt="" coords="127,5,347,32"/>
+<area shape="rect" id="Node000002" href="$tst__adminmoduletests_8cpp.html" title="Implementação dos testes unitários do módulo administrativo com Setup de Banco." alt="" coords="5,80,240,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,40,144,82,141,77,202,41"/>
+<area shape="rect" id="Node000003" href="$tst__unittests_8cpp.html" title="Testes unitários para as funcionalidades de reserva e visualização." alt="" coords="264,80,442,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,38,335,79,330,79,270,43"/>
+</map>

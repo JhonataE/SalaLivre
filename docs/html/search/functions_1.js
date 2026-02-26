@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['existereserva_0',['existeReserva',['../class_i_reserva_service.html#ada878229a5ec248c5434d7d2af8f9b86',1,'IReservaService::existeReserva()'],['../class_reserva_lib.html#a5ea5c5edf0d227ddc406323bf9a7debb',1,'ReservaLib::existeReserva()']]]
+  ['buscarreserva_0',['buscarReserva',['../class_i_reserva_service.html#a06910804254fd29d04a7d532cb6b58ca',1,'IReservaService::buscarReserva()'],['../class_reserva_lib.html#a0022fe515b855134361e5e62b6a720c4',1,'ReservaLib::buscarReserva()']]]
 ];

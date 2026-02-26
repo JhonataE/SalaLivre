@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$struct_q_t___w_a_r_n_i_n_g___d_i_s_a_b_l_e___d_e_p_r_e_c_a_t_e_d_1_1qt__meta__tag___z_n10_main_window_e__t.html" title=" " alt="" coords="5,5,186,64"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,74,57"/>
+<area shape="rect" id="Node000001" href="$class_adminmodel.html" title="Classe responsável pela interface de administração do sistema SalaLivre." alt="" coords="122,5,215,32"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="88,32,124,27,119,29,90,37"/>
+<area shape="rect" id="Node000002" href="$class_login_dialog.html" title="Gerencia a interface de autenticação, suportando logins institucionais e externos." alt="" coords="124,56,213,83"/>
+<area shape="poly" id="edge4_Node000000_Node000002" title=" " alt="" coords="89,51,126,60,121,61,89,56"/>
 </map>

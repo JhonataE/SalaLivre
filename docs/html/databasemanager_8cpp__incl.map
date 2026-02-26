@@ -1,0 +1,19 @@
+<map id="databasemanager.cpp" name="databasemanager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="204,5,353,32"/>
+<area shape="rect" id="Node000002" href="$databasemanager_8h.html" title=" " alt="" coords="211,80,346,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,30,281,66,276,63,277,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,112,181"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="260,31,183,82,89,147,86,143,180,78,255,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="136,155,221,181"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="256,31,226,54,201,81,188,110,182,141,178,138,183,109,196,79,223,50,251,34"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="335,155,414,181"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="305,30,335,50,361,79,373,109,377,141,372,138,368,110,356,81,332,54,304,35"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="437,155,506,181"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="305,30,344,51,384,78,422,110,454,144,448,143,418,114,381,82,341,56,304,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,110,112,152,111,147,239,105"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="264,106,210,148,207,143,259,108"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="296,105,348,145,343,145,294,110"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="313,105,426,149,421,149,312,110"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="246,155,311,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="280,105,281,141,276,138,277,109"/>
+</map>

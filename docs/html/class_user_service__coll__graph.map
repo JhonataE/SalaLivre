@@ -1,0 +1,5 @@
+<map id="UserService" name="UserService">
+<area shape="rect" id="Node000001" title="Classe que gerencia usuários através de consultas SQL ao banco de dados." alt="" coords="5,229,153,405"/>
+<area shape="rect" id="Node000002" href="$class_i_user_service.html" title="Interface abstrata que define as operações de usuário." alt="" coords="5,5,153,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,193,82,230,77,229,79,199"/>
+</map>

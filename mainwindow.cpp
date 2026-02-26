@@ -1,6 +1,14 @@
+/**
+ * @file mainwindow.cpp
+ * @brief Implementação da janela principal do sistema SalaLivre com integração SQL.
+ * @author Jhonata
+ */
+
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "reservalib.h"
+#include "adminmodel.h"
+#include "databasemanager.h" // Importante para gerenciar a conexão
 #include <QCalendarWidget>
 #include <QDialog>
 #include <QVBoxLayout>
@@ -11,35 +19,57 @@
 #include <QMessageBox>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QInputDialog>
 
-MainWindow::MainWindow(QWidget *parent)
+/**
+ * @brief Construtor da classe MainWindow.
+ * @details Inicializa os serviços de reserva, configura a tabela de horários e recupera os dados do usuário logado via UserService para controle de permissões.
+ * @param service Ponteiro para a interface do serviço de usuários.
+ * @param parent Ponteiro para o widget pai.
+ */
+MainWindow::MainWindow(IUserService* service, QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow) {
+    , ui(new Ui::MainWindow)
+    , userService(service) {
     ui->setupUi(this);
 
-    // Configura colunas da Timeline
+    // Recupera os dados do usuário para automação de reservas
+    this->dadosUsuarioLogado = userService->getLoggedUserData();
+    this->perfilAtual = dadosUsuarioLogado.role;
+
     ui->gridAgenda->setColumnCount(2);
     ui->gridAgenda->setHorizontalHeaderLabels({"Horário", "Status"});
 
-    // Componentização: Instancia a classe concreta da DLL e atribui à Interface (baixo acoplamento)
-    //Para usar SQL futuramente, basta criar nova classe que herda da interface e altera a inicialização
+    // Instanciação da biblioteca de reservas
     reservaService = new ReservaLib();
+
+    // --- NOVA LÓGICA DE ADMIN ---
+    if (this->perfilAtual == "Admin") {
+        ui->btnAreaAdm->setVisible(true);
+    } else {
+        ui->btnAreaAdm->setVisible(false);
+    }
 }
 
+/**
+ * @brief Destrutor da classe MainWindow.
+ * @details Realiza a limpeza da memória desalocando a interface UI e o serviço de reservas.
+ */
 MainWindow::~MainWindow() {
     delete ui;
-    delete reservaService; //liberar memória do serviço
+    delete reservaService;
 }
 
+/**
+ * @brief Slot acionado ao clicar no botão Buscar.
+ * @details Abre um diálogo para selecionar a unidade acadêmica e a data, filtrando as salas via SQL.
+ */
 void MainWindow::on_btnBuscar_clicked() {
     QDialog dialog(this);
     dialog.setWindowTitle("Configurar Agendamento - SalaLivre");
     QVBoxLayout *layout = new QVBoxLayout(&dialog);
-
-    layout->addWidget(new QLabel("Perfil do Ator:"));
-    QComboBox *comboUser = new QComboBox(&dialog);
-    comboUser->addItems({"Docente", "Estudante", "Usuário Externo"});
-    layout->addWidget(comboUser);
 
     layout->addWidget(new QLabel("Selecione a Unidade (Prédio):"));
     QComboBox *comboLocal = new QComboBox(&dialog);
@@ -55,21 +85,23 @@ void MainWindow::on_btnBuscar_clicked() {
     connect(btnOk, &QPushButton::clicked, &dialog, &QDialog::accept);
 
     if (dialog.exec() == QDialog::Accepted) {
-        this->perfilAtual = comboUser->currentText();
         this->dataAtual = calendario->selectedDate();
         QString predio = comboLocal->currentText();
 
         ui->listSalas->clear();
         ui->gridAgenda->setRowCount(0);
 
-        if (predio == "Bloco de Salas de aula") {
-            for(int i = 101; i <= 106; ++i) ui->listSalas->addItem("Sala " + QString::number(i));
-            for(int i = 201; i <= 213; ++i) ui->listSalas->addItem("Sala " + QString::number(i));
-        } else if (predio == "ICEB") {
-            for(int i = 1; i <= 23; ++i) ui->listSalas->addItem("Sala " + QString::number(i) + " - ICEB");
-        } else if (predio == "DEMIN") {
-            for(int i = 1; i <= 16; ++i) ui->listSalas->addItem("Sala " + QString::number(i) + " - DEMIN");
+        // BUSCA NO BANCO DE DADOS (Substituindo os loops manuais)
+        QSqlQuery query;
+        query.prepare("SELECT nome FROM salas WHERE unidade = :unidade");
+        query.bindValue(":unidade", predio);
+
+        if (query.exec()) {
+            while (query.next()) {
+                ui->listSalas->addItem(query.value(0).toString());
+            }
         }
+
         ui->lblStatus->setText("Prédio: " + predio + " | Data: " + this->dataAtual.toString("dd/MM/yyyy"));
     }
 }
@@ -87,44 +119,34 @@ void MainWindow::on_btnAgendar_clicked() {
         return;
     }
 
-    // (Criação do Diálogo) ---
-    QDialog d(this);
-    d.setWindowTitle("Dados da Reserva");
-    QFormLayout ly(&d);
+    QString sala = ui->listSalas->currentItem()->text();
+    QString statusTxt = ui->lblStatus->text();
+    QString predio = statusTxt.split("|").first().replace("Prédio: ", "").trimmed();
 
-    QLineEdit *editNome = new QLineEdit(&d);
-    QLineEdit *editTel = new QLineEdit(&d);
+    for (int row : linhas) {
+        QString hora = ui->gridAgenda->item(row, 0)->text();
 
-    ly.addRow("Nome Completo:", editNome);
-    ly.addRow("Telefone:", editTel);
+        // PERSISTÊNCIA NO BANCO (Sprint 3)
+        QSqlQuery query;
+        query.prepare("INSERT INTO reservas (sala_nome, usuario_nome, data, horario) "
+                      "VALUES (:sala, :user, :data, :hora)");
+        query.bindValue(":sala", sala);
+        query.bindValue(":user", this->dadosUsuarioLogado.name);
+        query.bindValue(":data", this->dataAtual.toString("yyyy-MM-dd"));
+        query.bindValue(":hora", hora);
+        query.exec();
 
-    QPushButton *btnConfirmar = new QPushButton("Confirmar Reserva", &d);
-    ly.addWidget(btnConfirmar);
-
-    connect(btnConfirmar, &QPushButton::clicked, &d, &QDialog::accept);
-    // ---------------------------------------------------------------------
-
-
-    if (d.exec() == QDialog::Accepted && !editNome->text().isEmpty()) {
-        QString sala = ui->listSalas->currentItem()->text();
-        QString statusTxt = ui->lblStatus->text();
-        QString predio = statusTxt.split("|").first().replace("Prédio: ", "").replace("Unidade: ", "").trimmed();
-
-        for (int row : linhas) {
-            QString hora = ui->gridAgenda->item(row, 0)->text();
-
-            Reserva r;
-            r.nome = editNome->text();
-            r.telefone = editTel->text();
-            r.perfil = this->perfilAtual;
-            r.ocupado = true;
-
-            // Uso da Interface e DLL
-            reservaService->salvarReserva(sala, this->dataAtual, hora, r);
-        }
-
-        atualizarGradeHoraria(this->dataAtual, this->perfilAtual, sala, predio);
+        // Mantém compatibilidade com o serviço legado se necessário
+        Reserva r;
+        r.nome = this->dadosUsuarioLogado.name;
+        r.telefone = this->dadosUsuarioLogado.email;
+        r.perfil = this->dadosUsuarioLogado.role;
+        r.ocupado = true;
+        reservaService->salvarReserva(sala, this->dataAtual, hora, r);
     }
+
+    QMessageBox::information(this, "Sucesso", "Reserva gravada no banco de dados para: " + this->dadosUsuarioLogado.name);
+    atualizarGradeHoraria(this->dataAtual, this->perfilAtual, sala, predio);
 }
 
 void MainWindow::on_listSalas_itemClicked(QListWidgetItem *item) {
@@ -152,6 +174,15 @@ void MainWindow::atualizarGradeHoraria(QDate data, QString perfil, QString sala,
     ui->gridAgenda->setRowCount(0);
     ui->lblStatus->setText("Unidade: " + predio + " | Sala: " + sala + " | Data: " + data.toString("dd/MM/yyyy"));
 
+    // Verifica status da sala (Manutenção) via SQL
+    bool emManutencao = false;
+    QSqlQuery qSala;
+    qSala.prepare("SELECT manutencao FROM salas WHERE nome = :nome");
+    qSala.bindValue(":nome", sala);
+    if(qSala.exec() && qSala.next()) {
+        emManutencao = qSala.value(0).toInt() == 1;
+    }
+
     for (int hora = 7; hora < 24; ++hora) {
         int linha = ui->gridAgenda->rowCount();
         ui->gridAgenda->insertRow(linha);
@@ -160,15 +191,26 @@ void MainWindow::atualizarGradeHoraria(QDate data, QString perfil, QString sala,
 
         QTableWidgetItem *st = new QTableWidgetItem();
 
-        // Uso da Interface: Consultando o componente DLL
-        if (reservaService->existeReserva(sala, data, hStr)) {
-            Reserva r = reservaService->buscarReserva(sala, data, hStr);
-            st->setText("OCUPADO (" + r.perfil + ")");
+        // CONSULTA DE OCUPAÇÃO NO BANCO
+        QSqlQuery qReserva;
+        qReserva.prepare("SELECT usuario_nome FROM reservas WHERE sala_nome = :sala AND data = :data AND horario = :hora");
+        qReserva.bindValue(":sala", sala);
+        qReserva.bindValue(":data", data.toString("yyyy-MM-dd"));
+        qReserva.bindValue(":hora", hStr);
+
+        if (qReserva.exec() && qReserva.next()) {
+            st->setText("OCUPADO");
             st->setBackground(Qt::red);
-            st->setToolTip("Nome: " + r.nome + "\nTel: " + r.telefone);
-        } else {
+            st->setToolTip("Reservado por: " + qReserva.value(0).toString());
+        }
+        else if (emManutencao) {
+            st->setText("Manutenção");
+            st->setBackground(Qt::gray);
+        }
+        else {
             st->setText("Disponível");
             st->setBackground(Qt::green);
+
             if (perfil == "Usuário Externo" && (hora < 10 || hora > 16)) {
                 st->setText("Restrito");
                 st->setBackground(Qt::gray);
@@ -177,4 +219,54 @@ void MainWindow::atualizarGradeHoraria(QDate data, QString perfil, QString sala,
         ui->gridAgenda->setItem(linha, 1, st);
     }
     ui->gridAgenda->horizontalHeader()->setStretchLastSection(true);
+}
+
+
+void MainWindow::on_btnAreaAdm_clicked() {
+    Adminmodel telaGestao(userService, this);
+    telaGestao.exec();
+}
+
+void MainWindow::on_btnEditarPerfil_clicked() {
+    bool ok;
+    QString novaSenha = QInputDialog::getText(this, "Perfil", "Alterar Senha:",
+                                              QLineEdit::Password, "", &ok);
+    if (ok && !novaSenha.isEmpty()) {
+        QSqlQuery query;
+        query.prepare("UPDATE usuarios SET senha = :senha WHERE username = :user");
+        query.bindValue(":senha", novaSenha);
+        query.bindValue(":user", this->dadosUsuarioLogado.name);
+        if(query.exec()) {
+            QMessageBox::information(this, "Sucesso", "Senha atualizada!");
+        }
+    }
+}
+
+void MainWindow::on_btnVerDetalhes_clicked() {
+    if (!ui->listSalas->currentItem()) {
+        QMessageBox::warning(this, "Aviso", "Por favor, selecione uma sala primeiro.");
+        return;
+    }
+    QString salaSelecionada = ui->listSalas->currentItem()->text();
+    QMessageBox::information(this, "Detalhes", "Informações da sala: " + salaSelecionada);
+}
+
+void MainWindow::on_btnCancelarReserva_clicked() {
+    if (!ui->listSalas->currentItem()) {
+        QMessageBox::warning(this, "Aviso", "Selecione a sala para cancelar.");
+        return;
+    }
+
+    QString salaNome = ui->listSalas->currentItem()->text();
+    QSqlQuery query;
+    query.prepare("DELETE FROM reservas WHERE sala_nome = :sala AND data = :data AND usuario_nome = :user");
+    query.bindValue(":sala", salaNome);
+    query.bindValue(":data", this->dataAtual.toString("yyyy-MM-dd"));
+    query.bindValue(":user", this->dadosUsuarioLogado.name);
+
+    if (userService && userService->isAdmin()) {
+        ui->btnAreaAdm->setVisible(true);
+    } else {
+        ui->btnAreaAdm->setVisible(false);
+    }
 }

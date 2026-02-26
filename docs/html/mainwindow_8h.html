@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ProFinder - Sistema de Agendamento: mainwindow.h File Reference</title>
+<title>SalaLivre - Sprint 3: mainwindow.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -26,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProFinder - Sistema de Agendamento
+   <div id="projectname">SalaLivre - Sprint 3
    </div>
   </td>
  </tr>
@@ -45,27 +42,11 @@ $(function() { codefold.init(); });
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(function(){initNavTree('mainwindow_8h.html','',''); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,38 +68,47 @@ $(function(){initNavTree('mainwindow_8h.html','',''); });
 </div>
 </div>
 
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">mainwindow.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Classe principal para a interface do sistema ProFinder.  
+<p>Classe principal para a interface do sistema SalaLivre.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;QMainWindow&gt;</code><br />
 <code>#include &lt;QDate&gt;</code><br />
 <code>#include &lt;QString&gt;</code><br />
 <code>#include &lt;QListWidgetItem&gt;</code><br />
 <code>#include &quot;<a class="el" href="_i_reserva_service_8h_source.html">IReservaService.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_user_service_8h_source.html">IUserService.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for mainwindow.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="mainwindow_8h__incl.png" border="0" usemap="#amainwindow_8h" loading="lazy" alt=""/></div>
 <map name="amainwindow_8h" id="amainwindow_8h">
-<area shape="rect" title="Classe principal para a interface do sistema ProFinder." alt="" coords="200,5,304,32"/>
+<area shape="rect" title="Classe principal para a interface do sistema SalaLivre." alt="" coords="274,5,377,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,112,107"/>
-<area shape="poly" title=" " alt="" coords="217,35,108,77,105,72,220,30"/>
+<area shape="poly" title=" " alt="" coords="278,35,121,78,119,73,280,30"/>
 <area shape="rect" title=" " alt="" coords="130,155,190,181"/>
-<area shape="poly" title=" " alt="" coords="229,31,201,54,177,81,166,110,162,141,157,138,161,109,172,79,197,50,225,34"/>
-<area shape="rect" title=" " alt="" coords="384,155,450,181"/>
-<area shape="poly" title=" " alt="" coords="304,24,403,44,446,59,474,78,480,96,475,115,464,132,448,147,446,142,459,128,470,112,475,96,470,82,444,64,401,49,304,30"/>
+<area shape="poly" title=" " alt="" coords="271,29,222,48,197,62,177,82,164,110,160,141,156,138,159,108,172,78,194,58,219,43,275,26"/>
+<area shape="rect" title=" " alt="" coords="464,155,530,181"/>
+<area shape="poly" title=" " alt="" coords="377,27,428,45,453,60,474,78,491,108,498,141,493,138,486,110,470,82,450,64,426,50,377,32"/>
 <area shape="rect" title=" " alt="" coords="340,80,460,107"/>
-<area shape="poly" title=" " alt="" coords="278,30,363,72,358,73,277,35"/>
+<area shape="poly" title=" " alt="" coords="339,30,379,70,374,69,337,35"/>
 <area shape="rect" href="_i_reserva_service_8h.html" title=" " alt="" coords="187,80,316,107"/>
-<area shape="poly" title=" " alt="" coords="253,30,254,66,249,63,250,35"/>
+<area shape="poly" title=" " alt="" coords="315,31,277,71,274,67,310,34"/>
+<area shape="rect" href="_i_user_service_8h.html" title="Interface para os serviços de usuário (SB01)." alt="" coords="535,80,643,107"/>
+<area shape="poly" title=" " alt="" coords="371,30,531,75,526,76,371,35"/>
 <area shape="poly" title=" " alt="" coords="238,106,189,147,186,143,233,108"/>
-<area shape="poly" title=" " alt="" coords="281,105,377,148,371,148,280,110"/>
+<area shape="poly" title=" " alt="" coords="295,105,452,152,447,153,294,110"/>
 <area shape="rect" title=" " alt="" coords="224,155,280,181"/>
 <area shape="poly" title=" " alt="" coords="254,105,254,140,250,138,250,109"/>
+<area shape="poly" title=" " alt="" coords="576,106,526,148,524,143,571,108"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -126,15 +116,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="mainwindow_8h__dep__incl.png" border="0" usemap="#amainwindow_8hdep" loading="lazy" alt=""/></div>
 <map name="amainwindow_8hdep" id="amainwindow_8hdep">
-<area shape="rect" title="Classe principal para a interface do sistema ProFinder." alt="" coords="266,5,369,32"/>
-<area shape="rect" href="moc__mainwindow_8cpp.html" title=" " alt="" coords="5,80,257,155"/>
-<area shape="poly" title=" " alt="" coords="278,41,204,82,201,77,282,38"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="280,104,355,131"/>
-<area shape="poly" title=" " alt="" coords="319,46,320,105,315,103,316,50"/>
-<area shape="rect" href="mainwindow_8cpp.html" title=" " alt="" coords="379,104,496,131"/>
-<area shape="poly" title=" " alt="" coords="345,39,425,103,419,104,344,44"/>
-<area shape="rect" href="_sala_livre___sprint1__autogen_2mocs__compilation_8cpp.html" title=" " alt="" coords="39,203,223,277"/>
-<area shape="poly" title=" " alt="" coords="133,168,133,203,129,201,129,173"/>
+<area shape="rect" title="Classe principal para a interface do sistema SalaLivre." alt="" coords="51,5,154,32"/>
+<area shape="rect" href="main_8cpp.html" title="Ponto de entrada principal do sistema SalaLivre com integração SQL." alt="" coords="5,80,80,107"/>
+<area shape="poly" title=" " alt="" coords="85,43,55,81,51,78,80,45"/>
+<area shape="rect" href="mainwindow_8cpp.html" title="Implementação da janela principal do sistema SalaLivre com integração SQL." alt="" coords="104,80,221,107"/>
+<area shape="poly" title=" " alt="" coords="124,42,155,80,150,80,121,46"/>
 </map>
 </div>
 </div>
@@ -143,31 +129,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:MainWindow" id="r_MainWindow"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html">MainWindow</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe <a class="el" href="class_main_window.html" title="Classe MainWindow que gerencia a interação do usuário com o sistema.">MainWindow</a> que gerencia a interação do usuário com o sistema.  <a href="class_main_window.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gerencia a interface de agendamento e integra os serviços de reserva e usuário.  <a href="class_main_window.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:Ui" id="r_Ui"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_ui.html">Ui</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe principal para a interface do sistema ProFinder. </p>
+<div class="textblock"><p>Classe principal para a interface do sistema SalaLivre. </p>
 <dl class="section author"><dt>Author</dt><dd>Jhonata </dd></dl>
 </div></div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="mainwindow_8h.html">mainwindow.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

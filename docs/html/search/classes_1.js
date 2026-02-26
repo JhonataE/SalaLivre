@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_ui_1_1_main_window.html',1,'Ui::MainWindow']]]
+  ['databasemanager_0',['DatabaseManager',['../class_database_manager.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dec_0',['DEC',['../_c_make_c_compiler_id_8c.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#ad1280362da42492bbc11aa78cbf776ad',1,'DEC:&#160;CMakeCXXCompilerId.cpp']]]
+  ['email_0',['email',['../struct_user_data.html#aadf52b5081f83eedc6cb15f272f6fc1c',1,'UserData']]],
+  ['existereserva_1',['existeReserva',['../class_i_reserva_service.html#ada878229a5ec248c5434d7d2af8f9b86',1,'IReservaService::existeReserva()'],['../class_reserva_lib.html#a5ea5c5edf0d227ddc406323bf9a7debb',1,'ReservaLib::existeReserva()']]]
 ];

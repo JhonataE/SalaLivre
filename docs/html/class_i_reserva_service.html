@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ProFinder - Sistema de Agendamento: IReservaService Class Reference</title>
+<title>SalaLivre - Sprint 3: IReservaService Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -26,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ProFinder - Sistema de Agendamento
+   <div id="projectname">SalaLivre - Sprint 3
    </div>
   </td>
  </tr>
@@ -45,27 +42,11 @@ $(function() { codefold.init(); });
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search',false);
   $(function() { init_search(); });
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(function(){initNavTree('class_i_reserva_service.html','','class_i_reserva_service-members'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,12 +68,17 @@ $(function(){initNavTree('class_i_reserva_service.html','','class_i_reserva_serv
 </div>
 </div>
 
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_i_reserva_service-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">IReservaService Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface para o serviço de gestão de reservas.  
+<p>Interface abstrata para o serviço de gestão de reservas.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_i_reserva_service_8h_source.html">IReservaService.h</a>&gt;</code></p>
@@ -101,21 +87,34 @@ Inheritance diagram for IReservaService:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_i_reserva_service__inherit__graph.png" border="0" usemap="#a_i_reserva_service_inherit__map" loading="lazy" alt="Inheritance graph"/></div>
 <map name="a_i_reserva_service_inherit__map" id="a_i_reserva_service_inherit__map">
-<area shape="rect" title="Interface para o serviço de gestão de reservas." alt="" coords="5,5,124,32"/>
-<area shape="rect" href="class_reserva_lib.html" title="Implementação concreta do serviço de reservas (Componente DLL)." alt="" coords="21,80,108,107"/>
-<area shape="poly" title=" " alt="" coords="66,46,67,80,62,79,63,50"/>
+<area shape="rect" title="Interface abstrata para o serviço de gestão de reservas." alt="" coords="5,5,142,139"/>
+<area shape="rect" href="class_reserva_lib.html" title="Implementação concreta do serviço de reservas (Componente de Persistência)." alt="" coords="14,187,134,320"/>
+<area shape="poly" title=" " alt="" coords="75,151,76,187,71,186,73,156"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for IReservaService:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_i_reserva_service__coll__graph.png" border="0" usemap="#a_i_reserva_service_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="a_i_reserva_service_coll__map" id="a_i_reserva_service_coll__map">
+<area shape="rect" title="Interface abstrata para o serviço de gestão de reservas." alt="" coords="5,5,142,139"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a489ef0e676a376ea6047989856d6e538" id="r_a489ef0e676a376ea6047989856d6e538"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a489ef0e676a376ea6047989856d6e538">~IReservaService</a> ()</td></tr>
+<tr class="memdesc:a489ef0e676a376ea6047989856d6e538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual para garantir a limpeza correta nas classes derivadas.  <br /></td></tr>
 <tr class="memitem:abb30099e650ff751a46fbf844dc845d7" id="r_abb30099e650ff751a46fbf844dc845d7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb30099e650ff751a46fbf844dc845d7">salvarReserva</a> (QString sala, QDate data, QString hora, <a class="el" href="struct_reserva.html">Reserva</a> r)=0</td></tr>
+<tr class="memdesc:abb30099e650ff751a46fbf844dc845d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método abstrato para salvar uma reserva.  <br /></td></tr>
 <tr class="memitem:a06910804254fd29d04a7d532cb6b58ca" id="r_a06910804254fd29d04a7d532cb6b58ca"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_reserva.html">Reserva</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06910804254fd29d04a7d532cb6b58ca">buscarReserva</a> (QString sala, QDate data, QString hora)=0</td></tr>
+<tr class="memdesc:a06910804254fd29d04a7d532cb6b58ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método abstrato para buscar os dados de uma reserva.  <br /></td></tr>
 <tr class="memitem:ada878229a5ec248c5434d7d2af8f9b86" id="r_ada878229a5ec248c5434d7d2af8f9b86"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada878229a5ec248c5434d7d2af8f9b86">existeReserva</a> (QString sala, QDate data, QString hora)=0</td></tr>
+<tr class="memdesc:ada878229a5ec248c5434d7d2af8f9b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método abstrato para verificar ocupação de um horário.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface para o serviço de gestão de reservas. </p>
+<div class="textblock"><p>Interface abstrata para o serviço de gestão de reservas. </p>
+<p>Define os métodos obrigatórios para persistência e consulta de agendamentos, permitindo o desacoplamento entre a interface e a implementação real (<a class="el" href="class_reserva_lib.html" title="Implementação concreta do serviço de reservas (Componente de Persistência).">ReservaLib</a>). </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a489ef0e676a376ea6047989856d6e538" name="a489ef0e676a376ea6047989856d6e538"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a489ef0e676a376ea6047989856d6e538">&#9670;&#160;</a></span>~IReservaService()</h2>
@@ -139,6 +138,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destrutor virtual para garantir a limpeza correta nas classes derivadas. </p>
 
 </div>
 </div>
@@ -175,6 +176,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Método abstrato para buscar os dados de uma reserva. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sala</td><td>Identificador da sala. </td></tr>
+    <tr><td class="paramname">data</td><td>Data consultada. </td></tr>
+    <tr><td class="paramname">hora</td><td>Horário consultado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Estrutura <a class="el" href="struct_reserva.html" title="Estrutura de dados que representa uma reserva de sala.">Reserva</a> com as informações encontradas. </dd></dl>
+
 <p>Implemented in <a class="el" href="class_reserva_lib.html#a0022fe515b855134361e5e62b6a720c4">ReservaLib</a>.</p>
 
 </div>
@@ -210,6 +222,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método abstrato para verificar ocupação de um horário. </p>
+<dl class="section return"><dt>Returns</dt><dd>true se houver reserva ativa, false caso contrário. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_reserva_lib.html#a5ea5c5edf0d227ddc406323bf9a7debb">ReservaLib</a>.</p>
 
@@ -252,6 +267,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Método abstrato para salvar uma reserva. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sala</td><td>Identificador da sala. </td></tr>
+    <tr><td class="paramname">data</td><td>Data do agendamento. </td></tr>
+    <tr><td class="paramname">hora</td><td>Horário do agendamento. </td></tr>
+    <tr><td class="paramname">r</td><td>Objeto contendo os dados do reservante. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="class_reserva_lib.html#a5d02572c5cd829940d5c4a5c5faccc45">ReservaLib</a>.</p>
 
 </div>
@@ -260,21 +286,10 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="_i_reserva_service_8h_source.html">IReservaService.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="class_i_reserva_service.html">IReservaService</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
 </body>
 </html>

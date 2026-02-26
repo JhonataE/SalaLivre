@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ireservaservice_0',['IReservaService',['../class_i_reserva_service.html',1,'']]]
+  ['adminmodel_0',['Adminmodel',['../class_adminmodel.html',1,'']]],
+  ['adminmoduletests_1',['AdminModuleTests',['../class_admin_module_tests.html',1,'']]]
 ];
